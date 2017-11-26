@@ -2,6 +2,7 @@
   "name": "react-typescript",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/secret/",
   "dependencies": {
     "@types/react-router-dom": "^4.2.2",
     "create-react-class": "^15.6.2",
