@@ -1,0 +1,94 @@
+.menu-title {
+  text-decoration: none;
+  margin: 20px auto;
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+  width: 250px;
+  font-size: 30px;
+  font-weight: 600;
+  font-family: "freight-sans-pro";
+  letter-spacing: 0.0333333em;
+  color: #fff;
+}
+
+.menu-title a {
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: 600;
+  font-family: "freight-sans-pro";
+  letter-spacing: 0.0333333em;
+  color: #fff;
+}
+
+.menu-title a:hover {
+  color: #ccc;
+}
+
+.menu-link {
+  margin: 20px auto;
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+  width: 100px;
+}
+
+.menu-link a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  font-family: "freight-sans-pro";
+  text-transform: uppercase;
+}
+
+.menu-link a:hover {
+  color: #ccc;
+}
+
+.menu {
+  margin: auto auto;
+  display: block;
+  width: 850px;
+}
+
+.menu-container {
+  margin: 0;
+  width: 100%;
+  background: rgb(36, 63, 151);
+}
+
+.content {
+  font-family: "medium-content-sans-serif-font,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif";
+  width: 700px;
+  margin: 0 auto;
+  color: rgba(0,0,0,.8);
+}
+
+.content h1 {
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -.015em;
+  text-align: center;
+}
+
+.content h2 {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -.015em;
+  text-align: center;
+}
+
+.content p {
+  font-size: 21px;
+  line-height: 1.58;
+  font-weight: 400;
+  letter-spacing: -.003em;
+}
+
+.youtube {
+  margin: 0 auto;
+  width: 560px;
+  height: 315px;
+}
