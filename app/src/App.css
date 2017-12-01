@@ -11,7 +11,7 @@
   text-decoration: none;
   font-size: 30px;
   font-weight: 600;
-  font-family: 'Source Sans Pro', sans-serif;  
+  font-family: 'Quicksand', sans-serif;  
   letter-spacing: 0.0333333em;
   color: #fff;
 }
@@ -32,9 +32,9 @@
   text-decoration: none;
   color: #fff;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
   text-align: center;
-  font-family: 'PT Sans', sans-serif;  
+  font-family: 'Josefin Sans', sans-serif;
   text-transform: uppercase;
 }
 
@@ -62,25 +62,24 @@
 }
 
 .home h1 {
-  font-family: 'Source Sans Pro', sans-serif;  
+  font-family: 'Quicksand', sans-serif;
   font-size: 60px;
   font-weight: 700;
 }
 
 .home h2 {
-  font-family: 'Work Sans', sans-serif;
-  font-size: 20px;
+  font-family: 'Source Sans Pro', sans-serif;  
+  font-size: 24px;
   font-weight: 700;
 }
 
 .home h3 {
-  font-family: 'Work Sans', sans-serif;
-  font-size: 20px;
+  font-family: 'Source Sans Pro', sans-serif;  
+  font-size: 24px;
   font-weight: 400;
 }
 
 .content {
-  font-family: "medium-content-sans-serif-font,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif";
   width: 700px;
   margin: 0 auto;
   color: rgba(0,0,0,.8);
@@ -90,10 +89,12 @@
   font-size: 38px;
   font-weight: 700;
   letter-spacing: -.015em;
+  font-family: 'Quicksand', sans-serif;  
   text-align: center;
 }
 
 .content h2 {
+  font-family: 'Source Sans Pro', sans-serif;  
   font-size: 30px;
   font-weight: 600;
   letter-spacing: -.015em;
@@ -101,6 +102,7 @@
 }
 
 .content p {
+  font-family: 'Source Sans Pro', sans-serif;  
   font-size: 21px;
   line-height: 1.58;
   font-weight: 400;
