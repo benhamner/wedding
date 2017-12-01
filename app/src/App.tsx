@@ -24,6 +24,7 @@ class App extends React.Component {
                 <div><img src="assets/bh7.jpg" /></div>
               </Carousel>
               <Route exact path="/" component={Home}/>
+              <Route exact path="/our-story" component={OurStory}/>
               <Route path="/the-wedding" component={TheWedding}/>
               <Route path="/travel" component={Travel}/>
               <Route path="/charleston" component={Charleston}/>
@@ -39,10 +40,10 @@ class App extends React.Component {
 const Menu = () => (
   <div className="menu-container">
   <div className="menu">
-    <div className="menu-link"><Link to="/">Our Story</Link></div>
+    <div className="menu-link"><Link to="/our-story">Our Story</Link></div>
     <div className="menu-link"><Link to="/the-wedding">The Wedding</Link></div>
     <div className="menu-link"><Link to="/travel">Travel</Link></div>
-    <div className="menu-title"><Link to="/">Ben & Vanessa</Link></div>
+    <div className="menu-title"><Link to="/">ben + vanessa</Link></div>
     <div className="menu-link"><Link to="/charleston">Charleston</Link></div>
     <div className="menu-link"><Link to="/registry">Registry</Link></div>
     <div className="menu-link"><Link to="/rsvp">RSVP</Link></div>
@@ -50,17 +51,26 @@ const Menu = () => (
 </div>
 )
 
-class Home extends React.Component {
+const Home = () => (
+  <div className="home">
+  <h1>Let's celebrate.</h1>
+  <h2>Ben and Vanessa are getting married!</h2>
+  <h3>May 5, 2018</h3>
+  <h3>Mount Pleasant, South Carolina</h3>
+  </div>
+)
+
+class OurStory extends React.Component {
   render() {
     return (
       <div className="carousel-container">
-        <OurStory />
+        <Story />
       </div>
     );
   }
 }
 
-const OurStory = () => (
+const Story = () => (
   <div className="content">
     <h1>Our Story</h1>
     <h2>DUKE</h2>
