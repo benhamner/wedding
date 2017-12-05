@@ -125,9 +125,8 @@ const Charleston = () => (
 
 const Registry = () => (
   <div className="content">
-    <h1>Registry</h1>
-    <h2>Coming soon</h2>
-    </div>
+    <p>We are still in the planning process-- check back soon for update</p>
+  </div>
 )
 
 const RSVP = () => (
