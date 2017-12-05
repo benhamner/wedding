@@ -87,13 +87,14 @@ const Story = () => (
 )
 
 const TheWedding = () => (
-  <div className="content">
-    <h1>The Wedding</h1>
-    <h2>SATURDAY, May 5, 2018</h2>
+  <div className="content theWedding">
+    <h1>Saturday, May 5, 2018</h1>
+    <h2>Alhambra Hall</h2>
+    <p>4p EST
+      <br />131 Middle St. Mount Pleasant, SC
+    </p>
     <p>We're getting married at Alhambra Hall in Mount Pleasant, South Carolina. For those coming from afar, Mount Pleasant is right across the bridge from Charleston. We're having both the ceremony and reception at Alhambra Hall.</p>
-    <p>The ceremony will start at 4:30p, and we will be celebrating until 11p.</p>
-    <h2>Schedule of Events</h2>
-    <h2>Coming soon</h2>
+    <iframe frameBorder="0" className="map" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAgDZIHIROOx1ygUmfWpSSzIYbWS1vD3Nk&q=Alhambra+Hall,Mount+Pleasant,+SC&zoom=12" allowFullScreen></iframe>
   </div>
 )
 
