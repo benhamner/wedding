@@ -97,11 +97,8 @@ const Story = () => (
     <h2>She said yes.</h2>
     <p>Vanessa and I went on a vacation to Banff National Park, Canada in June 2015. In the middle of the vacation, we did a 12-mile hike above the turqouise Lake Louise.</p>
     <p>We found a quiet spot to break at the apex of the trail, on top of the aptly named Big Beehive. Here, I told Vanessa my favorite memories of us together and how much I enjoyed being with her. I got down on one knee and asked to spend the rest of our lives together. She said yes!</p>
-    <p>On the second half of the hike, celebrated with a warm cup of caramel roobois tea at the Lake Agnes Tea House.</p>
-    <div className="our-story-images">
+    <div className="our-story-image-single">
       <img src="assets/Engage1.gif" />
-      <img src="assets/Engage2.gif" />
-      <img src="assets/Engage3.gif" />
     </div> 
   </div>
 )
