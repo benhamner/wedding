@@ -72,17 +72,35 @@ class OurStory extends React.Component {
 
 const Story = () => (
   <div className="content">
-    <h1>Our Story</h1>
-    <h2>DUKE</h2>
+    <h2>We met in college.</h2>
     <p>Ben and I met during the spring semester of our freshman year of college, at the ripe old age of 19. Our first meal together was at the now-defunct Armadillo Grill (RIP), and our first conversation was about how MATLAB could be used to program Christmas lights to flash in time with Christmas carols. (I still think this is a great idea, by the way. Ben is less enthusiasic.)</p>
-    <h2>SWITZERLAND</h2>
+    <div className="our-story-images">
+      <img src="assets/College1.jpg" />
+      <img src="assets/College2.jpg" />
+      <img src="assets/College3.jpg" />
+    </div>
+    <h2>Switzerland.</h2>
     <p>After graduation, we moved to Switzerland, and spent a year working at the Ecole Polytechnique Federal de Lausanne (EPFL). Being expats together brought on a whole new set of adventures-- from navigating a new culture in (very) broken French to skiing and hiking the Alps to eating our weight in cheese and chocolate. It was magical, and during this year we realized we wanted to spend the rest of our lives together.</p>
-    <h2>5 YEARS OF AIRPORTS</h2>    
+    <div className="our-story-images">
+      <img src="assets/Switzerland1.jpg" />
+      <img src="assets/Switzerland2.jpg" />
+      <img src="assets/Switzerland3.jpg" />
+    </div>
+    <h2>5 years of airports.</h2>    
     <p>Of course, life is not always straightforward, and after we moved back to the states we hit a crossroads. I had decided to go to medical school at Vanderbilt in Nashville, TN while Ben decided to join the crazy start-up life in SF, CA. Living 2394239 miles apart wasn’t easy, but we made it work through daily phone calls, facetimes, and a whole lot of frequent flyer miles.</p>    
     <p>Long distance finally came to an end on March 17, 2016, when I found out I matched to internal medicine residency at Stanford University in Palo Alto, CA. We’ve now been together nearly ten years and are over the moon to celebrate with you on 5/5/18!</p>    
-    <h2>SHE SAID YES</h2>
-    <p>[ben to write blurb on our engagement story here]</p>    
-    <p>[vanessa to write blurb on our engagement story here]</p>
+    <div className="our-story-images">
+      <img src="assets/California1.png" />
+      <img src="assets/California2.png" />
+      <img src="assets/California3.jpg" />
+    </div>
+    <h2>She said yes.</h2>
+    <p>[ben to write blurb on our engagement story here]</p>   
+    <div className="our-story-images">
+      <img src="assets/Engage1.gif" />
+      <img src="assets/Engage2.gif" />
+      <img src="assets/Engage3.gif" />
+    </div> 
   </div>
 )
 

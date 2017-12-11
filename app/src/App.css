@@ -11,7 +11,8 @@
   text-decoration: none;
   font-size: 30px;
   font-weight: 600;
-  font-family: 'Quicksand', sans-serif;  
+/*  font-family: 'Quicksand', sans-serif;  */
+  font-family: 'Bitter', serif;
   letter-spacing: 0.0333333em;
   color: #fff;
 }
@@ -62,7 +63,8 @@
 }
 
 .home h1 {
-  font-family: 'Quicksand', sans-serif;
+/*  font-family: 'Quicksand', sans-serif;*/
+  font-family: 'Bitter', serif;
   font-size: 60px;
   font-weight: 700;
 }
@@ -89,7 +91,8 @@
   font-size: 38px;
   font-weight: 700;
   letter-spacing: -.015em;
-  font-family: 'Quicksand', sans-serif;  
+/*  font-family: 'Quicksand', sans-serif; */
+  font-family: 'Bitter', serif; 
   text-align: center;
 }
 
@@ -123,4 +126,17 @@
   width: 700px;
   height: 400px;
   border: 0;
+}
+
+.our-story-images {
+  display: inline-block;
+  margin-bottom: 70px;
+}
+
+.our-story-images img {
+  width: 200px;
+  padding: 0px 16.66px;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
 }
