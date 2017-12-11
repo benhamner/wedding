@@ -105,6 +105,7 @@ const Story = () => (
     </div> 
   </div>
 )
+// Good animated gif editor: https://ezgif.com/
 
 const TheWedding = () => (
   <div className="content theWedding">
