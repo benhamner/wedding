@@ -150,7 +150,34 @@ const Registry = () => (
 const RSVP = () => (
   <div className="content">
     <h1>RSVP</h1>
-    <h2>Coming soon</h2>
+    {/*<iframe className="rsvp" src="https://docs.google.com/forms/d/e/1FAIpQLScE8TT85--D5RVo-6IKmdY_1HCRwAYmMecI0EH1AXuDz2CB8w/viewform?embedded=true">Loading...</iframe>*/}
+    <div className="rsvp-form">
+      <form action="https://docs.google.com/forms/d/e/1FAIpQLScE8TT85--D5RVo-6IKmdY_1HCRwAYmMecI0EH1AXuDz2CB8w/formResponse">
+        <div className="rsvp-yes">
+          <input type="radio" name="entry.1522333918" id="e1" value="Yes! So excited!"/>
+          <label htmlFor="e1">We're excited to join you!</label>
+        </div>
+        <div className="rsvp-no">
+          <input type="radio" name="entry.1522333918" id="e2" value="No, will celebrate from afar"/>
+          <label htmlFor="e2">We'll celebrate from afar</label>
+        </div>      
+        <div className="text-input-wrapper">
+          <div className="text-input-label">Name(s)</div>
+          <div className="text-input"><input name="entry.315065729" type="text" /></div>
+        </div>      
+        <div className="text-input-wrapper">
+          <div className="text-input-label">Email</div>
+          <div className="text-input"><input name="entry.191281849" type="text" /></div>
+        </div>
+        <div className="text-input-wrapper">
+          <div className="text-input-label">I will dance if you play</div>
+          <div className="text-input"><input name="entry.102289162" type="text" /></div>
+        </div>
+
+        <input className="button" type="submit" value="Submit" />
+      </form>
+    </div>
+    {/*
     <figure>
       <div className="carousel dissolve">
         <div className="items">
@@ -158,7 +185,7 @@ const RSVP = () => (
           <img className="item" src="assets/b5.jpg" />
         </div>
       </div>
-    </figure>
+    </figure>*/}
     </div>
 )
 
