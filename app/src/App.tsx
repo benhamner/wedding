@@ -23,13 +23,13 @@ class App extends React.Component {
                 <div><img src="assets/b6.jpg" /></div>
                 <div><img src="assets/bh7.jpg" /></div>
               </Carousel>
-              <Route exact path="/" component={Home}/>
-              <Route exact path="/our-story" component={OurStory}/>
-              <Route path="/the-wedding" component={TheWedding}/>
-              <Route path="/travel" component={Travel}/>
-              <Route path="/charleston" component={Charleston}/>
-              <Route path="/registry" component={Registry}/>
-              <Route path="/rsvp" component={RSVP}/>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/our-story" component={OurStory} />
+              <Route path="/the-wedding" component={TheWedding} />
+              <Route path="/travel" component={Travel} />
+              <Route path="/charleston" component={Charleston} />
+              <Route path="/registry" component={Registry} />
+              <Route path="/rsvp" component={RSVP} />
             </div>
           </Router>
       </div>
@@ -147,46 +147,83 @@ const Registry = () => (
   </div>
 )
 
-const RSVP = () => (
-  <div className="content">
-    <h1>RSVP</h1>
-    {/*<iframe className="rsvp" src="https://docs.google.com/forms/d/e/1FAIpQLScE8TT85--D5RVo-6IKmdY_1HCRwAYmMecI0EH1AXuDz2CB8w/viewform?embedded=true">Loading...</iframe>*/}
-    <div className="rsvp-form">
-      <form action="https://docs.google.com/forms/d/e/1FAIpQLScE8TT85--D5RVo-6IKmdY_1HCRwAYmMecI0EH1AXuDz2CB8w/formResponse">
-        <div className="rsvp-yes">
-          <input type="radio" name="entry.1522333918" id="e1" value="Yes! So excited!"/>
-          <label htmlFor="e1">We're excited to join you!</label>
-        </div>
-        <div className="rsvp-no">
-          <input type="radio" name="entry.1522333918" id="e2" value="No, will celebrate from afar"/>
-          <label htmlFor="e2">We'll celebrate from afar</label>
-        </div>      
-        <div className="text-input-wrapper">
-          <div className="text-input-label">Name(s)</div>
-          <div className="text-input"><input name="entry.315065729" type="text" /></div>
-        </div>      
-        <div className="text-input-wrapper">
-          <div className="text-input-label">Email</div>
-          <div className="text-input"><input name="entry.191281849" type="text" /></div>
-        </div>
-        <div className="text-input-wrapper">
-          <div className="text-input-label">I will dance if you play</div>
-          <div className="text-input"><input name="entry.102289162" type="text" /></div>
-        </div>
+interface RSVPProps {}
+interface RSVPState {
+  rsvp: string
+}
 
-        <input className="button" type="submit" value="Submit" />
-      </form>
-    </div>
-    {/*
-    <figure>
-      <div className="carousel dissolve">
-        <div className="items">
-          <img className="item" src="assets/b1.jpg" />
-          <img className="item" src="assets/b5.jpg" />
-        </div>
+class RSVP extends React.Component<RSVPProps, RSVPState> {
+  constructor(props: RSVPProps) {
+    super(props);
+    this.state = {
+      rsvp: ""
+    };
+  }
+
+  handleRSVPChange = (evt: React.FormEvent<HTMLInputElement>) => {
+    this.setState({rsvp: evt.currentTarget.value})
+  }
+
+  render () { return (
+    <div className="content">
+      <h1>Will you join us?</h1>
+      <div className="rsvp-form">
+      {/* Form customization logic from https://codepen.io/learningcode/post/customize-a-google-form-for-your-website*/}
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLScE8TT85--D5RVo-6IKmdY_1HCRwAYmMecI0EH1AXuDz2CB8w/formResponse">
+          <div className="yes-no-wrapper">
+            <div className="block-form-input">
+              <input type="radio" className="hidden" name="entry.1522333918" id="yes" value="Yes" onChange={this.handleRSVPChange}/>
+              <label htmlFor="yes" className="radio-label">Yes! We're excited to join you!</label>
+            </div>
+            <div className="block-form-input">
+              <input type="radio" className="hidden" name="entry.1522333918" id="no" value="No" onChange={this.handleRSVPChange}/>
+              <label htmlFor="no" className="radio-label">No, we'll celebrate from afar</label>
+            </div>
+          </div>
+          <div className="name-email-wrapper">
+            <div className="block-form-input"><TextInput name="entry.315065729" label="Name(s)" width="300px" /></div>
+            <div className="block-form-input"><TextInput name="entry.191281849" label="Email" width="300px" /></div>
+          </div>
+          <div className={["block-form-input", "music-input", this.state.rsvp=="No" ? "hide" : ""].join(" ")}>
+            <TextInput name="entry.102289162" label="I will dance if you play" width="650px" />
+          </div>
+          <input className="button" type="submit" value="RSVP" />
+        </form>
       </div>
-    </figure>*/}
-    </div>
-)
+    </div>)
+  }
+}
+
+interface TextInputProps {
+  name: string,
+  label: string,
+  width: string
+}
+interface TextInputState {
+  text: string
+}
+
+class TextInput extends React.Component<TextInputProps, TextInputState> {
+  constructor(props: TextInputProps) {
+    super(props);
+    this.state = {
+      text: ""
+    };
+  }
+
+  handleTextChange = (evt: React.FormEvent<HTMLInputElement>) => {
+    this.setState({text: evt.currentTarget.value})
+  }
+
+  render() {
+    return (
+      <div className="text-input-wrapper" style={{"width": this.props.width}}>
+        <input type="text" name={this.props.name} onChange={this.handleTextChange} value={this.state.text} width={this.props.width} />
+        <label className={this.state.text=="" ? "": "text-input-valid"} htmlFor={this.props.name}>{this.props.label}</label>
+        <div className="bar" style={{"width": this.props.width}}></div>
+      </div>
+    )
+  }
+}
 
 export default App;

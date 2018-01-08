@@ -155,37 +155,10 @@
   border: 0px;
 }
 
-.text-input-wrapper {
-  padding:4px;
-}
-
-.text-input-label {
-  width: 200px;
-  display:inline-block;
-}
-
-.text-input {
-  display:inline-block;
-}
-
-.rsvp-yes {
-  display: inline-block;
-}
-
-.rsvp-no {
-  display: inline-block;
-  padding-left: 20px;
-}
-
-input[type="text"]{
-  width: 300px;
-  height: 20px;
-}
-
 input[type="submit"] {
   display: block;
   margin: 20px auto 50px;
-  height: 34px;
+  height: 50px;
   width: 125px;
   font-family: 'Josefin Sans', sans-serif;
   letter-spacing: 0.5px;
@@ -195,13 +168,148 @@ input[type="submit"] {
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 1.25px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 input[type="submit"]:hover {
-  background: #0d30a0;
+  opacity: 0.8;
   cursor: pointer;
 }
 
-.rsvp-form {
-  width: 514px;
-  margin-left: 93px;
+/* RSVP Styling */
+
+.block-form-input {
+  display: inline-block;
+  margin-left: 25px;
+  margin-right: 25px;;
+}
+
+.text-input-wrapper {
+  width: 300px;
+  height: 60px;
+  overflow: hidden;
+  position: relative;
+}
+
+.text-input-wrapper label {
+  position: absolute;
+  top: 20px;
+  color: rgba(0, 0, 0, 0.5);
+  font: 400 20px Roboto;
+  cursor: text;
+  transition: .25s ease;
+}
+
+.text-input-wrapper input {
+  display: block;
+  width: 100%;
+  padding-top: 20px;
+  border: none;
+  border-radius: 0;
+  color: #333;
+  background: #FFFFFF;
+  font-size: 20px;
+  transition: .3s ease;
+}
+
+.text-input-wrapper input:focus {
+  outline: none;
+}
+.text-input-wrapper input:focus ~ label {
+  top: 0;
+  font: 700 12px Roboto;
+  color: #0D1D52;
+}
+.text-input-wrapper .text-input-valid {
+  top: 0;
+  font: 700 12px Roboto;
+  color: rgba(0, 0, 0, 0.5);
+}
+.text-input-wrapper input:focus ~ .bar:before {
+  transform: translateX(0);
+}
+.text-input-wrapper input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #FFFFFF inset;
+  -webkit-text-fill-color: black !important;
+}
+
+.text-input-wrapper .bar {
+  background: rgba(0, 0, 0, 0.5);
+  content: '';
+  width: 300px;
+  height: 2px;
+  transition: .3s ease;
+  position: relative;
+}
+.text-input-wrapper .bar:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 150%;
+  background: #0D1D52;
+  transform: translateX(-100%);
+}
+
+.text-input-wrapper ::selection {
+  background: rgba(13, 29, 82, 0.3);
+}
+
+.radio-label {
+  display: inline-block;
+  width: 250px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  color: #292929;
+  background: #efefef;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.radio-label:hover {
+  background: #d6d6d6;
+  color: #101010;
+}
+#yes:checked + .radio-label {
+  background: #0D1D52;
+  color: #fff;
+}
+#yes:checked + .radio-label:hover {
+  background: #0D1D32;
+  color: #fff;
+}
+#no:checked + .radio-label {
+  background: #F08080;
+  color: #fff;
+}
+#no:checked + .radio-label:hover {
+  background: #D08080;
+  color: #fff;
+}
+
+.yes-no-wrapper {
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-bottom: 18px;
+}
+
+.hidden {
+  display: none;
+}
+
+.music-input {
+  overflow-y: hidden;
+	max-height: 60px;
+  box-sizing: border-box;
+
+	transition-property: all;
+	transition-duration: 0.5s;
+	transition-timing-function: ease;
+}
+.music-input.hide {
+  max-height: 0;            
 }
