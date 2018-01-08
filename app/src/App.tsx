@@ -204,11 +204,20 @@ interface TextInputState {
 }
 
 class TextInput extends React.Component<TextInputProps, TextInputState> {
+  private textInput: HTMLInputElement | null;
+
   constructor(props: TextInputProps) {
     super(props);
+    this.focus = this.focus.bind(this);
     this.state = {
       text: ""
     };
+  }
+
+  public focus() {
+    if (this.textInput != null) {
+      this.textInput.focus();      
+    }
   }
 
   handleTextChange = (evt: React.FormEvent<HTMLInputElement>) => {
@@ -218,8 +227,17 @@ class TextInput extends React.Component<TextInputProps, TextInputState> {
   render() {
     return (
       <div className="text-input-wrapper" style={{"width": this.props.width}}>
-        <input type="text" name={this.props.name} onChange={this.handleTextChange} value={this.state.text} width={this.props.width} />
-        <label className={this.state.text=="" ? "": "text-input-valid"} htmlFor={this.props.name}>{this.props.label}</label>
+        <input type="text"
+               name={this.props.name}
+               ref={input => this.textInput = input}
+               onChange={this.handleTextChange}
+               value={this.state.text}
+               width={this.props.width} />
+        <label className={this.state.text=="" ? "": "text-input-valid"}
+               htmlFor={this.props.name}
+               onClick={this.focus}
+               /*onClick={() => {if (this.textInput != null) {alert("ben ws here 2")}}}*/
+               >{this.props.label}</label>
         <div className="bar" style={{"width": this.props.width}}></div>
       </div>
     )
