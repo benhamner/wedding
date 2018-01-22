@@ -117,6 +117,9 @@
   color: #0d1d52;
   font-weight: 600;
 }
+.content a:hover {
+  opacity: 0.7;
+}
 
 .theWedding p {
   text-align: center;
