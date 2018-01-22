@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as $ from 'jquery';
 import {
   HashRouter as Router,
   Route,
@@ -121,10 +122,43 @@ const Travel = () => (
     <h1>Travel</h1>
     <h2>Getting to Charleston</h2>
     <p>Charleston's served by the Charleston International Airport (CHS). While it's not a major hub, CHS is an active regional airport and easy to fly into.</p>
-    <h2>Where to stay</h2>
-    <p>Charleston has many great choices to stay. You can rent a house on the beach, stay close to the venue in Mount Pleasant, or head downtown to historic Charleston for the night.</p>
     <h2>Getting around</h2>
-    <p>If you're staying for longer and exploring Charleston, we recommend renting a car from the airport. Uber is also a good option. Uber operates in Charleston and the surrounding area, and we've never had to wait long for a ride.</p>
+    <p>Do you need to rent a car? It depends. Uber is alive and well in the Charleston area, and it's about a 30 minute drive from the airport to Mount Pleasant. If you're planning to stay longer and explore Charleston and the surrounding area, we recommend renting a car.</p>
+    <h2>Where to stay</h2>
+    <p>Charleston has many great choices to stay - you can't go wrong!</p>
+    <p>For convenience, we have reserved group rates at the following hotels:</p>
+    <div className="hotel-block">
+    <h3>Wyndham Garden Mt. Pleasant</h3>
+    <p>1330 Stuart Engals Blvd<br />
+       Mount Pleasant, SC 29464<br />
+       843.352.5152
+    </p>
+    <p><em>from $199 per night</em></p>
+    <p>Rate is reserved until 4.5.18<br />
+       Group Code: #05036979KH
+    </p>
+    <a href="https://www.wyndhamhotels.com">Book</a>
+    </div>
+    <div className="hotel-block">
+    <h3>Holiday Inn Express and Suites</h3>
+    <p>350 Johnnie Dodds Blvd.<br />
+       Mount Pleasant, SC 29464<br />
+       843.375.2600
+    </p>
+    <p><em>from $189 per night</em></p>
+    <p>Rate is reserved until 3.19.18<br />
+     &nbsp;
+    </p>
+    <a href="https://www.hiexpress.com/redirect?path=hd&brandCode=EX&localeCode=en&regionCode=1&hotelCode=CHSGR&_PMID=99801505&GPC=KHW&viewfullsite=true​">Book</a>
+    </div>
+    <p>Other options include:
+      <ul>
+        <li><a href="https://www.shemcreekinn.com">Shem Creek Inn</a> in Mt. Pleasant</li>
+        <li><a href="https://www.charlestonharborresort.com">Charleston Harbor Resort and Marina</a> in Mt. Pleasant</li>
+        <li>Staying in historic downtown Charleston - there are many small inns and boutique hotels, most of which are within a 30 minute drive from the venue</li>
+        <li>Renting a house or condo on the beach. This can be a great option if you want to share accomodation with family or friends! We recommend looking through <a href="https://www.airbnb.com">AirBnB</a> and <a href="https://www.vrbo.com">VRBO</a> for options</li>
+      </ul>
+    </p>
   </div>
 )
 
@@ -149,27 +183,65 @@ const Registry = () => (
 
 interface RSVPProps {}
 interface RSVPState {
-  rsvp: string
+  rsvp: string,
+  submitted: boolean
 }
 
 class RSVP extends React.Component<RSVPProps, RSVPState> {
   constructor(props: RSVPProps) {
     super(props);
     this.state = {
-      rsvp: ""
+      rsvp: "",
+      submitted: false
     };
   }
 
-  handleRSVPChange = (evt: React.FormEvent<HTMLInputElement>) => {
-    this.setState({rsvp: evt.currentTarget.value})
+  handleRSVPChange = (e: React.FormEvent<HTMLInputElement>) => {
+    this.setState({rsvp: e.currentTarget.value})
+  }
+
+  onKeyDown = (e: React.KeyboardEvent<HTMLFormElement>) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      this.submitRSVP();
+    }
+  }
+
+  onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    this.submitRSVP();
+  }
+
+  submitRSVP = () => {
+    $.ajax({
+      type: "POST",
+      url: "https://docs.google.com/forms/d/e/1FAIpQLScE8TT85--D5RVo-6IKmdY_1HCRwAYmMecI0EH1AXuDz2CB8w/formResponse",
+      xhrFields: {
+          withCredentials: true
+      },
+      data: $("#rsvp-form").serialize(),
+      beforeSend: function() {
+        alert("before send");
+          /*$('#rsvp').html('<img src="loading.gif" />');*/
+      },
+      success: data => {
+        alert("sent");
+        this.setState({submitted: true});
+        $('#result').html(data);}}).done(data => {
+          alert("sent2");
+          this.setState({submitted: true});
+          $('#result').html(data);}
+        ).always((x,s,z) => {console.log("always got called"); console.log(x); console.log(s); console.log(z);});
   }
 
   render () { return (
     <div className="content">
       <h1>Will you join us?</h1>
-      <div className="rsvp-form">
+      <div className={["rsvp-form", this.state.submitted ? "hidden" : ""].join(" ")}>
       {/* Form customization logic from https://codepen.io/learningcode/post/customize-a-google-form-for-your-website*/}
-        <form action="https://docs.google.com/forms/d/e/1FAIpQLScE8TT85--D5RVo-6IKmdY_1HCRwAYmMecI0EH1AXuDz2CB8w/formResponse">
+        <form id="rsvp-form" action="https://docs.google.com/forms/d/e/1FAIpQLScE8TT85--D5RVo-6IKmdY_1HCRwAYmMecI0EH1AXuDz2CB8w/formResponse" onKeyDown={this.onKeyDown} onSubmit={this.onSubmit}>
+          <input type="hidden" name="formkey" value="1FAIpQLScE8TT85--D5RVo-6IKmdY_1HCRwAYmMecI0EH1AXuDz2CB8w" />
           <div className="yes-no-wrapper">
             <div className="block-form-input">
               <input type="radio" className="hidden" name="entry.1522333918" id="yes" value="Yes" onChange={this.handleRSVPChange}/>
@@ -189,6 +261,10 @@ class RSVP extends React.Component<RSVPProps, RSVPState> {
           </div>
           <input className="button" type="submit" value="RSVP" />
         </form>
+      </div>
+      <div id="result"></div>
+      <div className={this.state.submitted ? "rsvp-thanks" : "hidden"}>
+        Thanks for responding!
       </div>
     </div>)
   }

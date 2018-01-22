@@ -112,6 +112,12 @@
   letter-spacing: -.003em;
 }
 
+.content a {
+  text-decoration: none;
+  color: #0d1d52;
+  font-weight: 600;
+}
+
 .theWedding p {
   text-align: center;
 }
@@ -312,4 +318,20 @@ input[type="submit"]:hover {
 }
 .music-input.hide {
   max-height: 0;            
+}
+
+.hotel-block {
+  display: inline-block;
+  width: 350px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.hotel-block a {
+  color: #0d1d52;
+  text-decoration: none;
+  padding: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #0d1d52;
+  border-radius: 4px;
 }
