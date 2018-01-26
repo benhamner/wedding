@@ -5,8 +5,8 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import './App.css';
 import './carousel.css';
+import './App.css';
 
 var Carousel = require('react-responsive-carousel').Carousel;
 
@@ -162,16 +162,100 @@ const Travel = () => (
   </div>
 )
 
+
+interface ButtonCarouselProps {}
+interface ButtonCarouselState {
+  currentSlide: number
+}
+
+class ButtonCarousel extends React.Component<ButtonCarouselProps, ButtonCarouselState> {
+  constructor(props: ButtonCarouselProps) {
+    super(props);
+      this.state = {
+          currentSlide: 1
+      };
+  }
+
+  next = () => {
+      this.setState({
+          currentSlide: Math.min(this.state.currentSlide + 1, 5)
+      });
+  }
+
+  prev = () => {
+      this.setState({
+          currentSlide: Math.max(this.state.currentSlide - 1, 1)
+      });
+  }
+
+  render() {
+      const buttonStyle = {fontSize: 20, padding: '5px 5px', margin: '5px 0px', border: '0px'};
+      const containerStyle = {margin: '0px 0 0px', float: 'right'};
+      return (
+          <div>
+              <div style={containerStyle}>
+                  <button onClick={this.prev} style={buttonStyle}>&lt;</button>
+                  <button onClick={this.next} style={buttonStyle}>&gt;</button>
+              </div>
+              <Carousel centerMode centerSlidePercentage={33.333333} selectedItem={this.state.currentSlide} interval={2500} transitionTime={500} showStatus={false} showIndicator={false} showThumbs={false}>
+                <div className="attraction"><a href="https://www.nps.gov/fosu/planyourvisit/fortsumtertickets.htm">
+                  <img src="assets/sumter.jpg"></img>
+                  <h3>Fort Sumter</h3>
+                  <p>Take a ferry on the beautiful Charleston Harbor to Fort Sumter, a historical Civil War fort. Tours last approximately 2.5 hours.</p>
+                  </a>
+                </div>
+                <div className="attraction">
+                  <img src="assets/sullivans.png"></img>
+                  <h3>Beach Time!</h3>
+                  <p>Relax and enjoy the beach! We love Isle of Palms and Sullivan’s Island (bonus points if you kiteboard at Sullivan’s)!</p>
+                </div>
+                <div className="attraction"><a href="http://cityofcharleston.com/self-guided-walking-tours/">
+                  <img src="assets/rainbow.png"></img>
+                  <h3>Historic Downtown</h3>
+                  <p>From the historic homes of the Charleston Battery to the colorful buildings on Rainbow Row, downtown Charleston is definitely worth seeing. Why not spend the afternoon doing a self-guided walking tour?</p>
+                  </a>
+                </div>
+                <div className="attraction"><a href="http://scaquarium.org">
+                  <img src="assets/aquarium.jpg"></img>
+                  <h3>Charleston Aquarium</h3>
+                  <p>The Charleston Aquarium is home to more than 10,000 animals and plants! We love visiting the loggerhead sea turtles, which are locals to SC!</p>
+                  </a>
+                </div>
+                <div className="attraction">
+                  <img src="assets/waterfront.png"></img>
+                  <h3>Waterfront Park</h3>
+                  <p>Stroll along the waterfront, swing on the benches on the pier, and play in the pineapple fountain. Waterfront Park is a wonderful and relaxing place to spend an hour or so.</p>
+                </div>
+                <div className="attraction">
+                  <img src="assets/shem-creek.png"></img>
+                  <h3>Shem Creek</h3>
+                  <p>Nearby the wedding venue, Shem Creek is a great place to rent a paddleboard, enjoy some seafood, watch the sunset, or look for dolphins.</p>
+                </div>
+                <div className="attraction"><a href="http://www.magnoliaplantation.com/">
+                  <img src="assets/magnolia.png"></img>
+                  <h3>Magnolia Plantation</h3>
+                  <p>Founded in 1676, Magnolia Plantation is the oldest plantations in the South and the oldest public gardens in America.  Take a tour of the gardens, conservatory, or historic home.</p>
+                  </a>
+                </div>
+              </Carousel>
+          </div>
+      );
+  }
+}
+
 const Charleston = () => (
   <div className="content">
-    <h1>Charleston</h1>
+    <h1>Welcome to the Lowcountry!</h1>
+    <p>Ben grew up in Mount Pleasant, and Vanessa has enjoyed visiting many times. We think it's great here, and hope you do to!</p>
     <div className="youtube">
       <iframe width="560" height="315" src="https://www.youtube.com/embed/jDwlc_bOnxg?rel=0&amp;showinfo=0" frameBorder="0" allowFullScreen></iframe>
     </div>
-    <h2>Eat</h2>
-    <p>Our favorite restaurants in Charleston include ...</p>
-    <h2>Play</h2>
-    <p>Beaches, Fort Sumter, ...</p>
+    <h2>Nearby Attractions</h2>
+    <div className="attractions-carousel">
+      <ButtonCarousel />
+    </div>
+    <h2>Our Favorite Bites</h2>
+    <p>Coming soon!</p>
   </div>
 )
 
@@ -215,15 +299,19 @@ class RSVP extends React.Component<RSVPProps, RSVPState> {
 
   submitRSVP = () => {
     $.ajax({
-      type: "POST",
+      type:"GET",
+      url: "https://docs.google.com/forms/d/e/1FAIpQLScE8TT85--D5RVo-6IKmdY_1HCRwAYmMecI0EH1AXuDz2CB8w/viewform",
+      success: data => {console.log(data)}
+    })
+
+    $.ajax({
+      type: "POST",      
       url: "https://docs.google.com/forms/d/e/1FAIpQLScE8TT85--D5RVo-6IKmdY_1HCRwAYmMecI0EH1AXuDz2CB8w/formResponse",
       xhrFields: {
           withCredentials: true
       },
       data: $("#rsvp-form").serialize(),
       beforeSend: function() {
-        alert("before send");
-          /*$('#rsvp').html('<img src="loading.gif" />');*/
       },
       success: data => {
         alert("sent");
@@ -232,7 +320,9 @@ class RSVP extends React.Component<RSVPProps, RSVPState> {
           alert("sent2");
           this.setState({submitted: true});
           $('#result').html(data);}
-        ).always((x,s,z) => {console.log("always got called"); console.log(x); console.log(s); console.log(z);});
+        ).always((x,s,z) => {console.log("always got called"); console.log("x"); console.log(x); 
+         console.log("x.statusCode"); console.log(x.getAllResponseHeaders());
+         console.log("s"); console.log(s); console.log("z"); console.log(z); });
   }
 
   render () { return (
