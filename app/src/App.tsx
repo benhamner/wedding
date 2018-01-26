@@ -189,7 +189,7 @@ class ButtonCarousel extends React.Component<ButtonCarouselProps, ButtonCarousel
   }
 
   render() {
-      const buttonStyle = {fontSize: 20, padding: '5px 5px', margin: '5px 0px', border: '0px'};
+      const buttonStyle = {fontSize: 20, padding: '5px 5px', margin: '5px 0px', border: 'none', outline: 'none'};
       const containerStyle = {margin: '0px 0 0px', float: 'right'};
       return (
           <div>
@@ -197,7 +197,7 @@ class ButtonCarousel extends React.Component<ButtonCarouselProps, ButtonCarousel
                   <button onClick={this.prev} style={buttonStyle}>&lt;</button>
                   <button onClick={this.next} style={buttonStyle}>&gt;</button>
               </div>
-              <Carousel centerMode centerSlidePercentage={33.333333} selectedItem={this.state.currentSlide} interval={2500} transitionTime={500} showStatus={false} showIndicator={false} showThumbs={false}>
+              <Carousel centerMode centerSlidePercentage={33.333333} selectedItem={this.state.currentSlide} interval={2500} transitionTime={500} showStatus={false} showIndicators={false} showThumbs={false} showArrows={false}>
                 <div className="attraction"><a href="https://www.nps.gov/fosu/planyourvisit/fortsumtertickets.htm">
                   <img src="assets/sumter.jpg"></img>
                   <h3>Fort Sumter</h3>
