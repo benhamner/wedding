@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as $ from 'jquery';
+// import * as $ from 'jquery';
 import {
   HashRouter as Router,
   Route,
@@ -285,7 +285,7 @@ class RSVP extends React.Component<RSVPProps, RSVPState> {
   handleRSVPChange = (e: React.FormEvent<HTMLInputElement>) => {
     this.setState({rsvp: e.currentTarget.value})
   }
-
+  /*
   onKeyDown = (e: React.KeyboardEvent<HTMLFormElement>) => {
     if (e.key === 'Enter') {
       e.preventDefault();
@@ -325,14 +325,15 @@ class RSVP extends React.Component<RSVPProps, RSVPState> {
         ).always((x,s,z) => {console.log("always got called"); console.log("x"); console.log(x); 
          console.log("x.statusCode"); console.log(x.getAllResponseHeaders());
          console.log("s"); console.log(s); console.log("z"); console.log(z); });
-  }
+  }*/
 
   render () { return (
     <div className="content">
       <h1>Will you join us?</h1>
       <div className={["rsvp-form", this.state.submitted ? "hidden" : ""].join(" ")}>
       {/* Form customization logic from https://codepen.io/learningcode/post/customize-a-google-form-for-your-website*/}
-        <form id="rsvp-form" action="https://docs.google.com/forms/d/e/1FAIpQLScE8TT85--D5RVo-6IKmdY_1HCRwAYmMecI0EH1AXuDz2CB8w/formResponse" onKeyDown={this.onKeyDown} onSubmit={this.onSubmit}>
+        {/*<form id="rsvp-form" action="https://docs.google.com/forms/d/e/1FAIpQLScE8TT85--D5RVo-6IKmdY_1HCRwAYmMecI0EH1AXuDz2CB8w/formResponse" onKeyDown={this.onKeyDown} onSubmit={this.onSubmit}>*/}
+        <form id="rsvp-form" action="https://docs.google.com/forms/d/e/1FAIpQLScE8TT85--D5RVo-6IKmdY_1HCRwAYmMecI0EH1AXuDz2CB8w/formResponse">
           <input type="hidden" name="formkey" value="1FAIpQLScE8TT85--D5RVo-6IKmdY_1HCRwAYmMecI0EH1AXuDz2CB8w" />
           <div className="yes-no-wrapper">
             <div className="block-form-input">
