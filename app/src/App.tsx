@@ -21,8 +21,10 @@ class App extends React.Component {
               <Carousel showArrows={true} showThumbs={false} transitionTime={500} infiniteLoop autoPlay showStatus={false} interval={2500}> 
                 <div><img src="assets/b1.jpg" /></div>
                 <div><img src="assets/b5.jpg" /></div>
-                <div><img src="assets/b6.jpg" /></div>
                 <div><img src="assets/bh7.jpg" /></div>
+                <div><img src="assets/cover1.jpg" /></div>
+                <div><img src="assets/cover2.jpg" /></div>
+                <div><img src="assets/cover3.jpg" /></div>
               </Carousel>
               <Route exact path="/" component={Home} />
               <Route exact path="/our-story" component={OurStory} />
@@ -246,7 +248,7 @@ class ButtonCarousel extends React.Component<ButtonCarouselProps, ButtonCarousel
 const Charleston = () => (
   <div className="content">
     <h1>Welcome to the Lowcountry!</h1>
-    <p>Ben grew up in Mount Pleasant, and Vanessa has enjoyed visiting many times. We think it's great here, and hope you do to!</p>
+    <p>Ben grew up in Mount Pleasant, and Vanessa has enjoyed visiting many times. We think it's great here, and hope you do too!</p>
     <div className="youtube">
       <iframe width="560" height="315" src="https://www.youtube.com/embed/jDwlc_bOnxg?rel=0&amp;showinfo=0" frameBorder="0" allowFullScreen></iframe>
     </div>
