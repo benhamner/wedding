@@ -111,7 +111,7 @@ const TheWedding = () => (
   <div className="content theWedding">
     <h1>Saturday, May 5, 2018</h1>
     <h2>Alhambra Hall</h2>
-    <p>4p EST
+    <p>4:30pm ET
       <br />131 Middle St. Mount Pleasant, SC
     </p>
     <p>We're getting married at Alhambra Hall in Mount Pleasant, South Carolina. For those coming from afar, Mount Pleasant is right across the bridge from Charleston. We're having both the ceremony and reception at Alhambra Hall.</p>
