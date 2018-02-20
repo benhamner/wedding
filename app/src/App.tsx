@@ -25,6 +25,8 @@ class App extends React.Component {
                 <div><img src="assets/cover1.jpg" /></div>
                 <div><img src="assets/cover2.jpg" /></div>
                 <div><img src="assets/cover3.jpg" /></div>
+                <div><img src="assets/cover4.jpg" /></div>
+                <div><img src="assets/cover5.jpg" /></div>
               </Carousel>
               <Route exact path="/" component={Home} />
               <Route exact path="/our-story" component={OurStory} />
