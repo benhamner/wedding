@@ -356,6 +356,7 @@ class RSVP extends React.Component<RSVPProps, RSVPState> {
           </div>
           <input className="button" type="submit" value="RSVP" />
         </form>
+        <p>Please RSVP by April 15</p>
       </div>
       <div id="result"></div>
       <div className={this.state.submitted ? "rsvp-thanks" : "hidden"}>
