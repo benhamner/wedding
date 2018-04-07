@@ -267,7 +267,7 @@ const Registry = () => (
   <div className="content">
     <h1>Registry</h1>
     <p>We are so excited to share our celebration with you! Your attendance at our wedding and well wishes for our marriage are the best gifts we could ask for.</p> 
-    <p>For those who have asked, we are registered at <a href="https://www.surlatable.com/registry/giftRegistryList.jsp?id=2002215955610">Sur la Table</a> and  <a href="https://www.crateandbarrel.com/gift-registry/registrant-list/5831543">Crate and Barrel</a>.</p>
+    <p>For those who have asked, we are registered at <a href="https://www.surlatable.com/registry/giftRegistryList.jsp?id=2002215955610">Sur la Table</a> and  <a href="https://www.crateandbarrel.com/gift-registry/vanessa-kennedy-and-ben-hamner/r5831866">Crate and Barrel</a>.</p>
   </div>
 )
 
